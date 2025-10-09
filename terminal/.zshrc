@@ -4,7 +4,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/marenga/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -42,8 +42,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export LIBXML2=/opt/homebrew/opt/libxml2/lib/pkgconfig/libxml-2.0.pc
 fi
 
-path+=('/home/marenga/.local/bin')
-path+=('/home/marenga/.cargo/bin')
+path+=('$HOME/.local/bin')
+path+=('$HOME/.cargo/bin')
 
 alias c="clear"
 alias ls="eza -g"
