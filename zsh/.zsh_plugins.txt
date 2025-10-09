@@ -1,0 +1,20 @@
+# oh-my-zsh plugins
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+
+# zsh-utils
+belak/zsh-utils path:history
+belak/zsh-utils path:prompt
+belak/zsh-utils path:utility
+belak/zsh-utils path:completion
+
+# Misc.
+zsh-users/zsh-completions
+
+# Prompt
+romkatv/powerlevel10k kind:fpath
+
+# Plugins
+zsh-users/zsh-autosuggestions
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-history-substring-search
