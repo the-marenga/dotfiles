@@ -36,18 +36,21 @@ export EDITOR='nvim'
 
 # Correctly enable homebrew installed things
 if [[ "$(uname)" == "Darwin" ]]; then
-    export PATH="/Library/Frameworks/Mono.framework/Versions/current/bin:$PATH"
-    export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
-    export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
+    path+=("/Library/Frameworks/Mono.framework/Versions/current/bin")
+    path+=("/opt/homebrew/opt/binutils/bin")
+    path+=("/opt/homebrew/opt/libxml2/bin")
     export LIBXML2=/opt/homebrew/opt/libxml2/lib/pkgconfig/libxml-2.0.pc
 fi
 
+path+=('/home/marenga/.local/bin')
+path+=('/home/marenga/.cargo/bin')
+
 alias c="clear"
 alias ls="eza -g"
-alias neofetch="fastfetch"
 alias ll="ls -l"
 alias la="ls -la"
 alias lt="eza -T -L 2 -l"
+alias neofetch="fastfetch"
 
 # Wake up machines in my local network
 alias wakesushi="wakeonlan 00:25:90:f2:2e:66"
