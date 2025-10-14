@@ -42,8 +42,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export LIBXML2=/opt/homebrew/opt/libxml2/lib/pkgconfig/libxml-2.0.pc
 fi
 
-path+=('$HOME/.local/bin')
-path+=('$HOME/.cargo/bin')
+path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin")
 
 alias c="clear"
 alias ls="eza -g"
