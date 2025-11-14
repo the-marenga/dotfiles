@@ -26,6 +26,22 @@ source ~/.zsh_plugins.zsh
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Speed up pasting into the terminal
+DISABLE_MAGIC_FUNCTIONS="true"
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -38,6 +54,7 @@ export EDITOR='nvim'
 if [[ "$(uname)" == "Darwin" ]]; then
     path+=("/Library/Frameworks/Mono.framework/Versions/current/bin")
     path+=("/opt/homebrew/opt/binutils/bin")
+    path+=("$HOME/.dotnet/tools")
     path+=("/opt/homebrew/opt/libxml2/bin")
     export LIBXML2=/opt/homebrew/opt/libxml2/lib/pkgconfig/libxml-2.0.pc
 fi
