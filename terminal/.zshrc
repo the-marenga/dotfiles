@@ -56,6 +56,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     path+=("/opt/homebrew/opt/binutils/bin")
     path+=("$HOME/.dotnet/tools")
     path+=("/opt/homebrew/opt/libxml2/bin")
+    export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
+    export LIBRARY_PATH="/opt/homebrew/opt/libxml2/lib:$LIBRARY_PATH"
     export LIBXML2=/opt/homebrew/opt/libxml2/lib/pkgconfig/libxml-2.0.pc
 fi
 
@@ -66,7 +68,6 @@ alias c="clear"
 alias ls="eza -g"
 alias ll="ls -l"
 alias la="ls -la"
-alias lt="eza -T -L 2 -l"
 alias neofetch="fastfetch"
 
 # Wake up machines in my local network
