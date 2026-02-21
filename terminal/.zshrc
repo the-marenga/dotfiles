@@ -58,7 +58,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     path+=("/opt/homebrew/opt/libxml2/bin")
     export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig:$PKG_CONFIG_PATH"
     export LIBRARY_PATH="/opt/homebrew/opt/libxml2/lib:$LIBRARY_PATH"
-    export LIBXML2=/opt/homebrew/opt/libxml2/lib/pkgconfig/libxml-2.0.pc
+    export LIBXML2="/opt/homebrew/opt/libxml2/lib/libxml2.dylib"
 fi
 
 path+=("$HOME/.local/bin")
@@ -73,3 +73,6 @@ alias neofetch="fastfetch"
 # Wake up machines in my local network
 alias wakesushi="wakeonlan 00:25:90:f2:2e:66"
 alias wakegummy="wakeonlan 30:9C:23:83:4F:B3"
+
+# https://spencer.wtf/2026/02/20/cleaning-up-merged-git-branches-a-one-liner-from-the-cias-leaked-dev-docs.html
+alias ciaclean='git branch --merged origin/main | grep -vE "^\s*(\*|main|develop)" | xargs -n 1 git branch -d'
